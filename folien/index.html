@@ -1,0 +1,510 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="description" content="description"><meta name="author" content="Artjom S., Justus B."><title>Goldschmiede Java 21</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js-3.9.2/css/reveal.css" rel="stylesheet"><link href="reveal.js-3.9.2/plugin/title-footer/title-footer.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js-3.9.2/css/theme/anderscore.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}</style><link href="reveal.js-3.9.2/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js-3.9.2/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></head><body><div class="reveal"><div class="slides"><section id="goldschmiede_java_21" data-state="no-title-footer"><h2>Goldschmiede Java 21</h2><div class="openblock text-center"><div class="content"><div class="paragraph"><p><strong>Ein Blick auf die Neuerungen und Vorteile</strong></p></div>
+<div class="imageblock" style=""><img src="images/anderScore/anderscore-white.jpg" alt="anderscore white" height="200"></div>
+<div class="paragraph"><p>Frankenwerft &amp; Remote</p></div>
+<div class="paragraph"><p>04.12.2023, Artjom S., Justus B.</p></div></div></div></section>
+<section id="agenda"><h2>Agenda</h2><div class="paragraph"><p><a href="00-greeting.html">Begrüßung</a></p></div>
+<div class="paragraph"><p><a href="anderScore1Slide.html">Vorstellung von anderScore</a></p></div>
+<div class="paragraph"><p><a href="01-intro.html">Vorstellung der Vortragenden</a></p></div>
+<div class="paragraph"><p><a href="einleitung_java21.html">Einleitung Java 21</a></p></div>
+<div class="ulist"><ul><li><p><a href="jb_01_virtual_threads.html">JEP 444: Virtual Threads</a></p></li><li><p><a href="jb_02_string_templates.html">JEP 430: String Templates (Preview)</a></p></li><li><p><a href="jb_03_switch_pattern.html">JEP 455: Primitive types in Patterns, instanceof, and switch (Preview)</a></p></li><li><p><a href="as_03_record_patterns.html">JEP 440: Record Patterns</a></p></li><li><p><a href="jb_04_unnamed_patterns.html">JEP 443: Unnamed Patterns and Variables (Preview)</a></p></li><li><p><a href="as_01_structured_concurrency.html">JEP 453: Structured Concurrency</a></p></li><li><p><a href="as_02_sequenced_collections.html">JEP 431: Sequenced Collections</a></p></li></ul></div></section>
+<section id="unternehmen"><h2>Unternehmen</h2><div class="paragraph"><p>
+<head>
+<style>
+	span.r {
+		color:#225c4d;
+	}
+	ul.bullet li::before{
+  		content: "\25CF";
+  		color: #225c4d;
+  		display: inline-block;
+  		margin-right: 20px;
+	}
+	ul.checkmark li::before{
+  		content: "\2714";
+  		color: #225c4d;
+  		display: inline-block;
+  		margin-right: 11px;
+	}
+	ul.arrow li::before{
+  		content: "\2794";
+  		color: #225c4d;
+  		display: inline-block;
+  		margin-right: 11px;
+	}
+</style>
+</head>
+<body>
+<p>
+	<div style="position:relative; top:280px;">
+		Individuelle Anwendungsentwicklung - Java Enterprise, Web, Mobile
+		<ul class="bullet" style="list-style:none;">
+			<li>seit 2005 <span class="r">&#160;&#160;&#160;♦&#160;&#160;&#160;</span> in Köln <span class="r">&#160;&#160;&#160;♦&#160;&#160;&#160;</span> für alle Branchen <span class="r">&#160;&#160;&#160;♦&#160;&#160;&#160;</span> <img style="position:relative; top:17px" src="images/anderScore/goldschmiede.png" height="60"></li>
+			<li>nach Aufwand & zum Festpreis</li>
+		</ul>
+		<div class="fragment">
+			<ul class="checkmark" style="list-style:none;">
+				<li>Digitalisierung / Prozesse / Integration</li>
+				<li>Migration</li>
+				<li>Neuentwicklung</li>
+				<li>Notfall / kritische Situationen</li>
+			</ul><br>
+			<ul class="arrow" style="list-style:none;">
+				<li>pragmatisch, zielgerichtet, zuverlässig</li>
+			</ul>
+		</div>
+	</div>
+</p>
+<p class="fragment">
+	<img style="overflow:hidden; position:relative; bottom:30px; left:830px;" src="images/anderScore/Bereiche.png" height="600">
+</p>
+<p>
+	<div class="fragment">
+		<div style="position:relative; bottom:270px;">
+		Kompletter SW Life Cycle<br>
+			<ul class="bullet" style="list-style:none;">
+				<li>Projektmanagement / agile Methodik</li>
+				<li>Anforderungsanalyse</li>
+				<li>Architektur & SW-Design</li>
+				<li>Implementierung & Testautomation</li>
+				<li>Studien & Seminare</li>
+			</ul>
+		</div>
+		<div style="position:relative; left:850px; bottom:330px; color:#225c4d; font-weight:bold">
+			... und für Sie? Sprechen Sie uns an!
+		</div>
+	</div>
+</p>
+</body>
+</p></div></section>
+<section id="vorstellung_artjom_suschtschenko"><h2>Vorstellung Artjom Suschtschenko</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p><strong>Artjom Suschtschenko</strong></p></div>
+<div class="paragraph"><p>(Software Engineer)</p></div>
+<div class="ulist"><ul><li><p>bei anderScore seit 2022</p></li><li><p>Fokus</p><div class="ulist"><ul><li><p>Java Entwicklung</p></li><li><p>Anwendungsmigration</p></li><li><p>Python</p></li><li><p>JavaScript</p></li><li><p>Frontend Development</p></li></ul></div></li></ul></div></div></td><td class="tableblock halign-left valign-top"><div><div class="imageblock" style=""><img src="images/anderScore/user-ASuschtschenko.jpg" alt="user ASuschtschenko"></div></div></td></tr></table></section>
+<section id="vorstellung_justus_braun"><h2>Vorstellung Justus Braun</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p><strong>Justus Braun</strong>
+(Software Engineer)</p></div>
+<div class="ulist"><ul><li><p>bei anderScore seit 2022</p></li><li><p>Fokus</p><div class="ulist"><ul><li><p>Java Entwicklung</p></li><li><p>DevOps</p></li><li><p>React</p></li><li><p>Game-Modding</p></li></ul></div></li></ul></div></div></td><td class="tableblock halign-left valign-top"><div><div class="imageblock" style=""><img src="images/anderScore/user-jbraun.jpg" alt="user jbraun" width="500"></div></div></td></tr></table></section>
+<section id="jdk_21_lts_release"><h2>JDK 21 LTS Release</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><div class="ulist"><ul><li><p>Veröffentlicht am 19.09.23</p></li><li><p>wird 5 Jahre unterstützt (LTS)</p></li><li><p>nächster LTS Release (Java 25)<br>
+ist geplant für den September 2025</p></li></ul></div></div></td><td class="tableblock halign-left valign-top"><div><div class="imageblock" style=""><img src="images/java-21-meme.webp" alt="java 21 meme" width="600px"></div></div></td></tr></table>
+<div class="paragraph small"><small>(Quelle: <a href="https://www.oracle.com/java/technologies/java-se-support-roadmap.html" class="bare">https://www.oracle.com/java/technologies/java-se-support-roadmap.html</a>)<br>
+(Quelle: <a href="https://9gag.com/gag/a8q2g8d" class="bare">https://9gag.com/gag/a8q2g8d</a>)</small></div></section>
+<section><section id="jep_444_virtual_threads"><h2>JEP 444: Virtual Threads</h2><div class="paragraph center"><p>JEP 444: Virtual Threads</p></div></section><section id="wie_und_was_ist_ein_virtueller_thread"><h2>Wie und was ist ein Virtueller Thread</h2><table class="tableblock frame-none grid-none" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><div class="imageblock" style=""><img src="images/virtuelle_threads_1.png" alt="vt_1" width="800" height="350"></div></div></td><td class="tableblock halign-left valign-top"><div><div class="imageblock" style=""><img src="images/virtuelle_threads_2.png" alt="vt_2" width="800" height="350"></div></div></td></tr></table>
+<table class="tableblock frame-none grid-none" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><div class="imageblock" style=""><img src="images/virtuelle_threads_3.png" alt="vt_3" width="800" height="350"></div></div></td><td class="tableblock halign-left valign-top"><div><div class="imageblock" style=""><img src="images/virtuelle_threads_4.png" alt="vt_4" width="800" height="350"></div></div></td></tr></table>
+<div class="paragraph"><p>Quelle: (<a href="https://www.youtube.com/watch?v=5E0LU85EnTI" class="bare">https://www.youtube.com/watch?v=5E0LU85EnTI</a>)</p></div></section><section id="warum_virtuelle_threads"><h2>Warum Virtuelle Threads</h2><div class="ulist"><ul><li><p>Thread per request</p></li><li><p>Weniger Hardware trotz mehr durchlauf</p></li><li><p>Optimale Auslastung</p></li></ul></div></section><section id="wie_benutzt_man_virtuelle_threads"><h2>Wie benutzt man Virtuelle Threads</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="predefined-type">Thread</span> thread = <span class="predefined-type">Thread</span>.ofVirtual().start(() -&gt; <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Hello</span><span class="delimiter">&quot;</span></span>));
+thread.join();</code></pre>
+<div class="paragraph"><p>Hier mit einem Thread Builder</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="predefined-type">Thread</span>.Builder builder = <span class="predefined-type">Thread</span>.ofVirtual().name(<span class="string"><span class="delimiter">&quot;</span><span class="content">MyThread</span><span class="delimiter">&quot;</span></span>);
+<span class="predefined-type">Runnable</span> task = () -&gt; {
+    <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Running thread</span><span class="delimiter">&quot;</span></span>);
+};
+<span class="predefined-type">Thread</span> t = builder.start(task);
+<span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Thread t name: </span><span class="delimiter">&quot;</span></span> + t.getName());
+t.join();</code></pre></section></section>
+<section><section id="jep_430_string_templates_preview"><h2>JEP 430: String Templates (Preview)</h2><div class="paragraph center"><p>JEP 430: String Templates (Preview)</p></div></section><section id="aktuelle_string_verkettung"><h2>Aktuelle String Verkettung</h2><div class="paragraph"><p>Probleme</p></div>
+<div class="ulist"><ul><li><p>Sehr nervig zu ändern</p></li><li><p>Nicht gut lesbar</p></li></ul></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="predefined-type">String</span> s = x + <span class="string"><span class="delimiter">&quot;</span><span class="content"> plus </span><span class="delimiter">&quot;</span></span> + y + <span class="string"><span class="delimiter">&quot;</span><span class="content"> equals </span><span class="delimiter">&quot;</span></span> + (x + y);</code></pre>
+<div class="paragraph"><p>oder</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="predefined-type">String</span> s = <span class="predefined-type">String</span>.format(<span class="string"><span class="delimiter">&quot;</span><span class="content">%2$d plus %1$d equals %3$d</span><span class="delimiter">&quot;</span></span>, x, y, x + y);</code></pre></section><section id="neue_art_zu_verketten"><h2>Neue Art zu Verketten</h2><pre class="CodeRay listingblock"><code class="java language-java">STR.<span class="string"><span class="delimiter">&quot;</span><span class="content">\{</span><span class="content">x} plus </span><span class="content">\{</span><span class="content">y} equals </span><span class="content">\{</span><span class="content">x + y}</span><span class="delimiter">&quot;</span></span>;</code></pre>
+<div class="paragraph"><p>Json Block</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java">STR.<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span><span class="string"><span class="delimiter">&quot;</span><span class="content">
+    {
+        </span><span class="delimiter">&quot;</span></span>feelsLike<span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span><span class="error">\</span>{ feelsLike }<span class="string"><span class="delimiter">&quot;</span><span class="content">,
+        </span><span class="delimiter">&quot;</span></span>temperature<span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span><span class="error">\</span>{ temperature }<span class="string"><span class="delimiter">&quot;</span><span class="content">,
+        </span><span class="delimiter">&quot;</span></span>unit<span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span><span class="error">\</span>{ unit }<span class="string"><span class="delimiter">&quot;</span><span class="content">
+    }
+    </span><span class="delimiter">&quot;</span></span><span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>;</code></pre>
+<div class="paragraph"><p>Json Block mit Format</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java">FMT.<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span><span class="string"><span class="delimiter">&quot;</span><span class="content">
+    {
+        </span><span class="delimiter">&quot;</span></span>feelsLike<span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span>%<span class="integer">1</span>s<span class="error">\</span>{ feelsLike }<span class="string"><span class="delimiter">&quot;</span><span class="content">,
+        </span><span class="delimiter">&quot;</span></span>temperature<span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span>%<span class="float">2.2f</span><span class="error">\</span>{ temperature }<span class="string"><span class="delimiter">&quot;</span><span class="content">,
+        </span><span class="delimiter">&quot;</span></span>unit<span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span>%<span class="integer">1</span>s<span class="error">\</span>{ unit }<span class="string"><span class="delimiter">&quot;</span><span class="content">
+    }
+    </span><span class="delimiter">&quot;</span></span><span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span> ;</code></pre></section><section id="user_defined_template_processors"><h2>User-defined template processors</h2><pre class="CodeRay listingblock"><code class="java language-java">var JSON = StringTemplate.Processor.of(
+    (StringTemplate st) -&gt; <span class="keyword">new</span> JSONObject(st.interpolate())
+);
+
+<span class="predefined-type">String</span> name    = <span class="string"><span class="delimiter">&quot;</span><span class="content">Joan Smith</span><span class="delimiter">&quot;</span></span>;
+<span class="predefined-type">String</span> phone   = <span class="string"><span class="delimiter">&quot;</span><span class="content">555-123-4567</span><span class="delimiter">&quot;</span></span>;
+<span class="predefined-type">String</span> address = <span class="string"><span class="delimiter">&quot;</span><span class="content">1 Maple Drive, Anytown</span><span class="delimiter">&quot;</span></span>;
+JSONObject doc = JSON.<span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span><span class="string"><span class="delimiter">&quot;</span><span class="content">
+        {
+            </span><span class="delimiter">&quot;</span></span>name<span class="string"><span class="delimiter">&quot;</span><span class="content">:    </span><span class="delimiter">&quot;</span></span><span class="error">\</span>{name}<span class="string"><span class="delimiter">&quot;</span><span class="content">,
+            </span><span class="delimiter">&quot;</span></span>phone<span class="string"><span class="delimiter">&quot;</span><span class="content">:   </span><span class="delimiter">&quot;</span></span><span class="error">\</span>{phone}<span class="string"><span class="delimiter">&quot;</span><span class="content">,
+            </span><span class="delimiter">&quot;</span></span>address<span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span><span class="error">\</span>{address}<span class="string"><span class="delimiter">&quot;</span><span class="content">
+        };
+    </span><span class="delimiter">&quot;</span></span><span class="string"><span class="delimiter">&quot;</span><span class="delimiter">&quot;</span></span>;</code></pre></section></section>
+<section><section id="jep_455_primitive_types_in_patterns_instanceof_and_switch_preview"><h2>JEP 455: Primitive types in Patterns, instanceof, and switch (Preview)</h2><div class="paragraph center"><p>JEP 455: Primitive types in Patterns, instanceof, and switch (Preview)</p></div></section><section id="pattern_matching_bisher"><h2>Pattern Matching bisher</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="keyword">if</span> (anyObj <span class="keyword">instanceof</span> <span class="predefined-type">String</span> str) {
+    ...
+}</code></pre>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">static</span> <span class="predefined-type">String</span> asStringValue(<span class="predefined-type">Object</span> anyValue) {
+    <span class="predefined-type">String</span> result = <span class="string"><span class="delimiter">&quot;</span><span class="content">n/a</span><span class="delimiter">&quot;</span></span>;
+
+    <span class="keyword">if</span> (anyValue <span class="keyword">instanceof</span> <span class="predefined-type">String</span> str) {
+        result = str;
+    } <span class="keyword">else</span> <span class="keyword">if</span> (anyValue <span class="keyword">instanceof</span> JSONObject json) {
+        result = json.toCompactString();
+    } <span class="keyword">else</span> <span class="keyword">if</span> (anyValue <span class="keyword">instanceof</span> <span class="predefined-type">BigDecimal</span> bd) {
+        result = bd.toEngineeringString();
+    } <span class="keyword">else</span> <span class="keyword">if</span> (anyValue instance <span class="predefined-type">Integer</span> i) {
+        result = <span class="predefined-type">Integer</span>.toString(i);
+    } <span class="keyword">else</span> <span class="keyword">if</span> (anyValue <span class="keyword">instanceof</span> LocalDate ld) {
+        result = ld.format(DateTimeFormatter.ISO_LOCAL_DATE);
+    } <span class="keyword">else</span> {
+        ....
+    }
+
+    <span class="keyword">return</span> result;
+}</code></pre></section><section id="java_21_switch_pattern_matching"><h2>Java 21 Switch Pattern Matching</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">static</span> <span class="predefined-type">String</span> asStringValue(<span class="predefined-type">Object</span> anyValue) {
+
+    <span class="keyword">return</span> <span class="keyword">switch</span> (anyValue) {
+        <span class="keyword">case</span> <span class="predefined-type">String</span> str      -&gt; str;
+        <span class="keyword">case</span> JSONObject json -&gt; json.toCompactString();
+        <span class="keyword">case</span> <span class="predefined-type">BigDecimal</span> bd   -&gt; bd.toEngineeringString();
+        <span class="keyword">case</span> <span class="predefined-type">Integer</span> i       -&gt; <span class="predefined-type">Integer</span>.toString(i);
+        <span class="keyword">case</span> LocalDate ld    -&gt; ld.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        <span class="keyword">default</span>              -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">n/a</span><span class="delimiter">&quot;</span></span>;
+    };
+}</code></pre></section><section id="multi_cases"><h2>Multi-Cases</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">static</span> <span class="predefined-type">String</span> describe(DayOfWeek dow) {
+    <span class="keyword">return</span> <span class="keyword">switch</span>(dow) {
+        <span class="keyword">case</span> TUESDAY          -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Taco Tuesday</span><span class="delimiter">&quot;</span></span>;
+        <span class="keyword">case</span> WEDNESDAY        -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Margarita Wednesday</span><span class="delimiter">&quot;</span></span>;
+        <span class="keyword">case</span> SATURDAY, SUNDAY -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Party time!</span><span class="delimiter">&quot;</span></span>;
+        <span class="keyword">default</span>               -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">Boring work day...</span><span class="delimiter">&quot;</span></span>;
+    };
+}</code></pre></section><section id="guarded_case"><h2>Guarded Case</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">static</span> <span class="type">void</span> testStringNew(<span class="predefined-type">String</span> response) {
+    <span class="keyword">switch</span> (response) {
+        <span class="keyword">case</span> <span class="predefined-constant">null</span> -&gt; { }
+        <span class="keyword">case</span> <span class="predefined-type">String</span> s
+        when s.equalsIgnoreCase(<span class="string"><span class="delimiter">&quot;</span><span class="content">YES</span><span class="delimiter">&quot;</span></span>) -&gt; {
+            <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">You got it</span><span class="delimiter">&quot;</span></span>);
+        }
+        <span class="keyword">case</span> <span class="predefined-type">String</span> s
+        when s.equalsIgnoreCase(<span class="string"><span class="delimiter">&quot;</span><span class="content">NO</span><span class="delimiter">&quot;</span></span>) -&gt; {
+            <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Shame</span><span class="delimiter">&quot;</span></span>);
+        }
+        <span class="keyword">case</span> <span class="predefined-type">String</span> s -&gt; {
+            <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Sorry?</span><span class="delimiter">&quot;</span></span>);
+        }
+    }
+}</code></pre></section></section>
+<section><section id="jep_440_record_patterns"><h2>JEP 440: Record Patterns</h2><div class="paragraph center"><p>JEP 440: Record Patterns</p></div></section><section id="record_patterns"><h2>Record Patterns</h2><div class="ulist"><ul><li><p>Erweiterung des instanceof-Operators in Java 16 mit Type Patterns für einfacheres und prägnanteres Pattern Matching.</p></li><li><p>Vereinfachtes und weniger fehleranfälliges Pattern Matching.</p></li><li><p>Direktes Extrahieren von Komponenten aus Record-Klassen mit Record Patterns.</p></li></ul></div></section><section id="verwenden_von_record_patterns" class="columns"><h2>Verwenden von Record Patterns</h2><div class="openblock two-col center"><div class="content"><div class="paragraph"><p>Zuordnen des Typs und Zugriff aud die Komponenten:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java">record <span class="predefined-type">Point</span>(<span class="type">int</span> x, <span class="type">int</span> y) {<span class="comment">/* no body */</span>}
+
+<span class="predefined-type">Object</span> maybePoint = ...;
+
+<span class="keyword">if</span> (maybePoint <span class="keyword">instanceof</span> <span class="predefined-type">Point</span> p) {
+  <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Point =&gt; </span><span class="delimiter">&quot;</span></span> + p.x() + <span class="string"><span class="delimiter">&quot;</span><span class="content">/</span><span class="delimiter">&quot;</span></span> + p.y());
+}</code></pre></div></div>
+<div class="openblock two-col center"><div class="content"><div class="paragraph"><p>Um nicht den Point selbst, sondern seine Komponenten abzugleichen, muss das Muster explizit angegeben werden:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="predefined-type">Object</span> maybePoint = ...;
+
+<span class="keyword">if</span> (maybePoint <span class="keyword">instanceof</span> <span class="predefined-type">Point</span>(<span class="type">int</span> x, <span class="type">int</span> y)) {
+  <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Point =&gt; </span><span class="delimiter">&quot;</span></span> + x + <span class="string"><span class="delimiter">&quot;</span><span class="content">/</span><span class="delimiter">&quot;</span></span> + y);
+}</code></pre></div></div>
+<div class="paragraph small bottom"><small>(Quelle: <a href="https://belief-driven-design.com/looking-at-java-21-record-patterns-b5282/" class="bare">https://belief-driven-design.com/looking-at-java-21-record-patterns-b5282/</a>)</small></div></section><section id="nested_record_patterns"><h2>Nested record patterns</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="comment">// As of Java 16</span>
+record <span class="predefined-type">Point</span>(<span class="type">int</span> x, <span class="type">int</span> y) {}
+<span class="type">enum</span> <span class="predefined-type">Color</span> { RED, GREEN, BLUE }
+record ColoredPoint(<span class="predefined-type">Point</span> p, <span class="predefined-type">Color</span> c) {}
+record <span class="predefined-type">Rectangle</span>(ColoredPoint upperLeft, ColoredPoint lowerRight) {}
+
+<span class="comment">// As of Java 21</span>
+<span class="directive">static</span> <span class="type">void</span> printColorOfUpperLeftPoint(<span class="predefined-type">Rectangle</span> r) {
+    <span class="keyword">if</span> (r <span class="keyword">instanceof</span> <span class="predefined-type">Rectangle</span>(ColoredPoint(<span class="predefined-type">Point</span> p, <span class="predefined-type">Color</span> c),
+                               ColoredPoint lr)) {
+        <span class="predefined-type">System</span>.out.println(c);
+    }
+}</code></pre></section></section>
+<section><section id="jep_443_unnamed_patterns_and_variables_preview"><h2>JEP 443: Unnamed Patterns and Variables (Preview)</h2><div class="paragraph center"><p>JEP 443: Unnamed Patterns and Variables (Preview)</p></div></section><section id="ziel"><h2>Ziel</h2><div class="paragraph"><p>Reduzierung von Boilerplate Code und Sideeffekts</p></div></section><section id="wie_benutzt_man_das"><h2>Wie benutzt man das</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">public</span> record Car(<span class="predefined-type">String</span> name) {}</code></pre>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="keyword">for</span> (var car : cars) {
+    total++;
+    <span class="keyword">if</span> (total &gt; limit) {
+        <span class="comment">// side effect</span>
+    }
+}</code></pre>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="keyword">for</span> (var _ : cars) {
+    total++;
+    <span class="keyword">if</span> (total &gt; limit) {
+        <span class="comment">// side effect</span>
+    }
+}</code></pre></section><section id="in_try_catch_blöcken"><h2>In Try-Catch Blöcken</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="keyword">try</span> {
+    someOperationThatFails(car);
+} <span class="keyword">catch</span> (<span class="exception">IllegalStateException</span> _) {
+    <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Got an illegal state exception for: </span><span class="delimiter">&quot;</span></span> + car.name());
+} <span class="keyword">catch</span> (<span class="exception">RuntimeException</span> _) {
+    <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Got a runtime exception!</span><span class="delimiter">&quot;</span></span>);
+}</code></pre></section><section id="try_with_resource"><h2>Try with Resource</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="type">class</span> <span class="class">Transaction</span> <span class="directive">implements</span> AutoCloseable {
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> close() {
+        <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Closed!</span><span class="delimiter">&quot;</span></span>);
+    }
+}</code></pre>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">static</span> <span class="type">void</span> obtainTransactionAndUpdateCar(Car car) {
+    <span class="keyword">try</span> (var _ = <span class="keyword">new</span> Transaction()) {
+        updateCar(car);
+    }
+}</code></pre></section><section id="instance_of"><h2>Instance of</h2><pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">public</span> record Car&lt;T <span class="directive">extends</span> Engine&gt;(<span class="predefined-type">String</span> name, <span class="predefined-type">String</span> color, T engine) { }</code></pre>
+<div class="paragraph"><p>Alt:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">static</span> <span class="predefined-type">String</span> getObjectsColor(<span class="predefined-type">Object</span> object) {
+    <span class="keyword">if</span> (object <span class="keyword">instanceof</span> Car(<span class="predefined-type">String</span> name, <span class="predefined-type">String</span> color, Engine engine)) {
+        <span class="keyword">return</span> color;
+    }
+    <span class="keyword">return</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">No color!</span><span class="delimiter">&quot;</span></span>;
+}</code></pre>
+<div class="paragraph"><p>Neu:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java"><span class="directive">static</span> <span class="predefined-type">String</span> getObjectsColorWithUnnamedPattern(<span class="predefined-type">Object</span> object) {
+    <span class="keyword">if</span> (object <span class="keyword">instanceof</span> Car(_, <span class="predefined-type">String</span> color, _)) {
+        <span class="keyword">return</span> color;
+    }
+    <span class="keyword">return</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">No color!</span><span class="delimiter">&quot;</span></span>;
+}</code></pre></section></section>
+<section><section id="jep_453_structured_concurrency_preview"><h2>JEP 453: Structured Concurrency (Preview)</h2><div class="paragraph center"><p>JEP 453: Structured Concurrency (Preview)</p></div></section><section id="motivation"><h2>Motivation:</h2><div class="ulist"><ul><li><p>Vereinfachung der Verwaltung von Aufgaben und Unteraufgaben für die nebenläufige Abarbeitung.</p></li><li><p>Bisherige nebenläufigkeit mit dem ExecutorService (java.util.concurrent package) führt zu Problemen bei</p><div class="ulist"><ul><li><p>Abbruch</p></li><li><p>Thread-Leaks</p></li><li><p>Fehlerdiagnose</p></li></ul></div></li></ul></div></section><section id="was_ist_die_herausforderung_mit_dem_executorservice"><h2>Was ist die Herausforderung mit dem ExecutorService?</h2><div class="ulist"><ul><li><p>Subtasks können unabhängig voneinander erfolgreich oder fehlerhaft sein</p></li><li><p>Schwierigkeiten bei der Koordination von Lebenszyklen, insbesondere bei Exceptions.</p></li><li><p>Fehlende automatische Beendigung von Subtasks bei Fehler in einem anderen Subtask.</p></li></ul></div></section><section id="wie_wird_das_problem_mit_structuredtaskscope_gelöst"><h2>Wie wird das Problem mit StructuredTaskScope gelöst?</h2><div class="ulist"><ul><li><p>Einführung eines Preview-APIs in java.util.concurrent mit StructuredTaskScope.</p></li><li><p>Behandlung von Gruppen zusammenhängender Aufgaben als Einheit zur Verbesserung von Fehlerbehandlung und Abbrüchen (cancellation).</p></li></ul></div></section><section id="2_wie_wird_das_problem_mit_structuredtaskscope_gelöst"><h2>2. Wie wird das Problem mit StructuredTaskScope gelöst?</h2><div class="imageblock" style=""><img src="images/structured-concurrency-vs-unstructured-concurrency.v2-800x369.png" alt="structured concurrency vs unstructured concurrency.v2 800x369" height="600"></div>
+<div class="paragraph small bottom"><small>( Quelle: <a href="https://www.happycoders.eu/java/structured-concurrency-structuredtaskscope/" class="bare">https://www.happycoders.eu/java/structured-concurrency-structuredtaskscope/</a> )</small></div></section><section id="single_thread_vs_executorservice" class="columns"><h2>Single Thread vs ExecutorService</h2><div class="openblock two-col top"><div class="content"><div class="paragraph"><p>Single Thread:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java">Response handle() <span class="directive">throws</span> <span class="exception">IOException</span> {
+    <span class="predefined-type">String</span> theUser  = findUser();
+    <span class="type">int</span>    theOrder = fetchOrder();
+
+    <span class="keyword">return</span> <span class="keyword">new</span> Response(theUser, theOrder);
+}</code></pre></div></div>
+<div class="openblock two-col top"><div class="content"><div class="paragraph"><p>Unstructured concurrency mit ExecutorService:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java">Response handle() <span class="directive">throws</span> <span class="exception">ExecutionException</span>, <span class="exception">InterruptedException</span> {
+    <span class="predefined-type">Future</span>&lt;<span class="predefined-type">String</span>&gt;  user  = esvc.submit(() -&gt; findUser());
+    <span class="predefined-type">Future</span>&lt;<span class="predefined-type">Integer</span>&gt; order = esvc.submit(() -&gt; fetchOrder());
+
+    <span class="predefined-type">String</span> theUser  = user.get();   <span class="comment">// Join findUser</span>
+    <span class="type">int</span>    theOrder = order.get();  <span class="comment">// Join fetchOrder</span>
+
+    <span class="keyword">return</span> <span class="keyword">new</span> Response(theUser, theOrder);
+}</code></pre></div></div></section><section id="executorservice_vs_structured_concurrency" class="columns"><h2>ExecutorService vs Structured Concurrency</h2><div class="openblock two-col top"><div class="content"><div class="paragraph"><p>Unstructured concurrency mit ExecutorService:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java">Response handle() <span class="directive">throws</span> <span class="exception">ExecutionException</span>, <span class="exception">InterruptedException</span> {
+    <span class="predefined-type">Future</span>&lt;<span class="predefined-type">String</span>&gt;  user  = esvc.submit(() -&gt; findUser());
+    <span class="predefined-type">Future</span>&lt;<span class="predefined-type">Integer</span>&gt; order = esvc.submit(() -&gt; fetchOrder());
+
+    <span class="predefined-type">String</span> theUser  = user.get();   <span class="comment">// Join findUser</span>
+    <span class="type">int</span>    theOrder = order.get();  <span class="comment">// Join fetchOrder</span>
+
+    <span class="keyword">return</span> <span class="keyword">new</span> Response(theUser, theOrder);
+}</code></pre></div></div>
+<div class="openblock two-col top"><div class="content"><div class="paragraph"><p>Verwenden von Structured Concurrency:</p></div>
+<pre class="CodeRay listingblock"><code class="java language-java">Response handle() <span class="directive">throws</span> <span class="exception">ExecutionException</span>, <span class="exception">InterruptedException</span> {
+    <span class="keyword">try</span> (var scope = <span class="keyword">new</span> StructuredTaskScope.ShutdownOnFailure()) {
+        Supplier&lt;<span class="predefined-type">String</span>&gt;  user  = scope.fork(() -&gt; findUser());
+        Supplier&lt;<span class="predefined-type">Integer</span>&gt; order = scope.fork(() -&gt; fetchOrder());
+
+        scope.join()            <span class="comment">// Join both subtasks</span>
+             .throwIfFailed();  <span class="comment">// ... and propagate errors</span>
+
+        <span class="comment">// Here, both subtasks have succeeded</span>
+        <span class="keyword">return</span> <span class="keyword">new</span> Response(user.get(), order.get());
+    }
+}</code></pre></div></div></section></section>
+<section><section id="jep_431_sequenced_collections"><h2>JEP 431: Sequenced Collections</h2><div class="paragraph center"><p>JEP 431: Sequenced Collections</p></div></section><section id="sequencedcollection"><h2>SequencedCollection</h2><div class="imageblock" style=""><img src="images/431_SequncedCollectionsZusammen2.png" alt="431 SequncedCollectionsZusammen2" height="700"></div></section><section id="motivation_2"><h2>Motivation</h2><div class="ulist"><ul><li><p>Einführung von neuen Methoden für Sequenced Collection, Sequenced Sets und Sequenced Maps.</p></li><li><p>Einheitliche Methoden für Zugriff und Verarbeitung von Elementen.</p></li><li><p>Verbesserung der Benutzerfreundlichkeit bei der Arbeit mit SequencedCollection.</p></li><li><p>Bessere Unterstützung für reverse Iteration und Erstellung von Streams in umgekehrter Reihenfolge.</p></li></ul></div></section><section id="wie_wurde_sequencedcollection_implementiert"><h2>Wie wurde SequencedCollection implementiert?</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><pre class="CodeRay listingblock"><code class="java language-java"><span class="type">interface</span> <span class="class">SequencedCollection</span>&lt;E&gt; <span class="directive">extends</span> <span class="predefined-type">Collection</span>&lt;E&gt; {
+    <span class="comment">// new method</span>
+    SequencedCollection&lt;E&gt; reversed();
+    <span class="comment">// methods promoted from Deque</span>
+    <span class="type">void</span> addFirst(E);
+    <span class="type">void</span> addLast(E);
+    E getFirst();
+    E getLast();
+    E removeFirst();
+    E removeLast();
+}</code></pre></div></td><td class="tableblock halign-left valign-top"><div><div class="imageblock" style=""><img src="images/431_SequencedCollection2.png" alt="431 SequencedCollection2" height="600px"></div></div></td></tr></table></section><section id="wie_wurde_sequencedset_implementiert"><h2>Wie wurde "SequencedSet" implementiert?</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><pre class="CodeRay listingblock"><code class="java language-java"><span class="type">interface</span> <span class="class">SequencedSet</span>&lt;E&gt; <span class="directive">extends</span> <span class="predefined-type">Set</span>&lt;E&gt;, SequencedCollection&lt;E&gt; {
+    SequencedSet&lt;E&gt; reversed();    <span class="comment">// covariant override</span>
+}</code></pre></div></td><td class="tableblock halign-left valign-top"><div><div class="imageblock" style=""><img src="images/431_SequencedCollection2.png" alt="431 SequencedCollection2" height="600"></div></div></td></tr></table></section><section id="wie_wurde_sequenced_maps_implementiert"><h2>Wie wurde "Sequenced maps" implementiert?</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><pre class="CodeRay listingblock"><code class="java language-java"><span class="type">interface</span> <span class="class">SequencedMap</span>&lt;K,V&gt; <span class="directive">extends</span> <span class="predefined-type">Map</span>&lt;K,V&gt; {
+    <span class="comment">// new methods</span>
+    SequencedMap&lt;K,V&gt; reversed();
+    SequencedSet&lt;K&gt; sequencedKeySet();
+    SequencedCollection&lt;V&gt; sequencedValues();
+    SequencedSet&lt;Entry&lt;K,V&gt;&gt; sequencedEntrySet();
+    V putFirst(K, V);
+    V putLast(K, V);
+    <span class="comment">// methods promoted from NavigableMap</span>
+    Entry&lt;K, V&gt; firstEntry();
+    Entry&lt;K, V&gt; lastEntry();
+    Entry&lt;K, V&gt; pollFirstEntry();
+    Entry&lt;K, V&gt; pollLastEntry();
+}</code></pre></div></td><td class="tableblock halign-left valign-top"><div><div class="imageblock" style=""><img src="images/431_SequencedMap2.png" alt="431 SequencedMap2" height="600"></div></div></td></tr></table></section></section>
+<section id="fazit"><h2>Fazit</h2><div class="paragraph heading"><p>Features</p></div>
+<pre class="CodeRay listingblock"><code>430:	String Templates (Preview)
+431:	Sequenced Collections
+439:	Generational ZGC
+440:	Record Patterns
+441:	Pattern Matching for switch
+442:	Foreign Function &amp; Memory API (Third Preview)
+443:	Unnamed Patterns and Variables (Preview)
+444:	Virtual Threads
+445:	Unnamed Classes and Instance Main Methods (Preview)
+446:	Scoped Values (Preview)
+448:	Vector API (Sixth Incubator)
+449:	Deprecate the Windows 32-bit x86 Port for Removal
+451:	Prepare to Disallow the Dynamic Loading of Agents
+452:	Key Encapsulation Mechanism API
+453:	Structured Concurrency (Preview)</code></pre></section>
+<section id="goldschmiede_java_21_2" data-state="no-title-footer"><h2>Goldschmiede Java 21</h2><div class="openblock text-center"><div class="content"><div class="paragraph"><p><strong>Ein Blick auf die Neuerungen und Vorteile</strong></p></div>
+<div class="imageblock" style=""><img src="images/anderScore/anderscore-white.jpg" alt="anderscore white" height="200"></div>
+<div class="paragraph"><p>Frankenwerft &amp; Remote</p></div>
+<div class="paragraph"><p>04.12.2023, Artjom S., Justus B.</p></div></div></div></section></div></div><script src="reveal.js-3.9.2/lib/js/head.min.js"></script><script src="reveal.js-3.9.2/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Display the page number of the current slide
+  slideNumber: true,
+  // Push each slide change to the browser history
+  history: true,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: true,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'anderscore',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'linear',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 1728,
+  height: 972,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js-3.9.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/title-footer/title-footer.js', async: true, callback: function()
+          {title_footer.initialize('Goldschmiede Java 21', 'Artjom S., Justus B.', 'anderScore GmbH • Frankenwerft 35 • 50667 Köln');}},
+      { src: 'reveal.js-3.9.2/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js-3.9.2/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+      { src: 'reveal.js-3.9.2/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});</script></body></html>

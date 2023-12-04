@@ -1,5 +1,6 @@
 # 1. Dezember 2023 Goldschmiede Java 21
 * Folien - PDF: [2023-12-11-Java21.pdf](2023-12-11-Java21.pdf)
+* Folien - HTML: über folien/index.html lässt sich der Vortrag über den Browser navigieren
 
 
 ## Java 21: Ein Blick auf die Neuerungen und Vorteile!
